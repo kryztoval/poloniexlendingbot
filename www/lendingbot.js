@@ -142,6 +142,7 @@ function updateRawValues(rawData){
             if (totalCoins != maxToLend) {
                 lentStr += ' <b>Total</b><br/>Lent ' + printFloat(lentSum * btcMultiplier, 4) + ' of ' + printFloat(maxToLend * btcMultiplier, 4) + ' (' + printFloat(lentPercLendable, 2) + '%) <b>Lendable</b>';
             }
+            lentStr += '<br />Estimated Value: ' + ( rawData[currency]['totalCoins'] * earningsOutputCoinRate * highestBidBTC / ( btcMultiplier ? btcMultiplier : 1) ).toLocaleString('en-US', {minimumFractionDigits: 2}) + " " + earningsOutputCoin;
 
             var displayCurrency = currency == 'BTC' ? displayUnit.name : currency;
             var currencyStr = "<b>" + displayCurrency + "</b>";

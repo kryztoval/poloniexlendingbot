@@ -141,6 +141,7 @@ def cancel_all():
         if CUR in coin_cfg and coin_cfg[CUR]['maxactive'] == 0:
             # don't cancel disabled coin
             continue
+        log.log("Canceling ALL {0} orders.".format(CUR))
         if keep_stuck_orders:
             lending_balances = available_balances['lending']
             if isinstance(lending_balances, dict) and CUR in lending_balances:
@@ -308,7 +309,7 @@ def lend_cur(active_cur, total_lended, lending_balances):
         below_min = Decimal(orders['rates'][i]) < Decimal(cur_min_daily_rate)
 
         if hide_coins and below_min:
-            log.log("Not lending {:s} due to rate below {:.4f}%".format(active_cur,(cur_min_daily_rate * 100)))
+            log.log("Not lending {:s} due to {:.4f}% rate is below {:.4f}%".format(active_cur,(orders['rates'][i] * 100),(cur_min_daily_rate * 100)))
             return 0
         elif below_min:
             rate = str(cur_min_daily_rate)

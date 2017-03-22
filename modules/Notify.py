@@ -47,7 +47,7 @@ def post_to_telegram(msg, chat_ids, bot_id):
             check_urlib_response(response, 'telegram')
         except urllib2.HTTPError as e:
             msg = "Your bot id is probably configured incorrectly"
-            raise NotificationException("{0}\n{1}".format(e, msg))
+            #raise NotificationException("{0}\n{1}".format(e, msg))
 
 
 def send_email(msg, email_login_address, email_login_password, email_smtp_server, email_smtp_port,
