@@ -195,7 +195,7 @@ This feature allows you to record a currency's market and have the bot see trend
 
     - Format: ``CURRENCY_TICKER,STR,BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT,ALL,ACTIVE``
     - Commenting it out will disable the entire feature.
-    - Entering ``ACTIVE`` within the list will transfer any currencies that are found in your lending account, as well as any other currencies alongside it. Example: ``ACTIVE, BTC, CLAM`` will do BTC, CLAM, and any coins you are already lending.
+    - Entering ``ACTIVE`` within the list will analyse any currencies that are found in your lending account, as well as any other currencies alongside it. Example: ``ACTIVE, BTC, CLAM`` will do BTC, CLAM, and any coins you are already lending.
     - Entering ``ALL`` will simply analyse all coins on the lending market, whether or not you are using them.
     - Do not worry about duplicates when using ``ACTIVE``, they are handled.
 
@@ -323,6 +323,10 @@ The bot supports sending notifications for serveral different events on several 
 
 Notification events
 ~~~~~~~~~~~~~~~~~~~
+
+- ``notify_new_loans``
+
+    - Sends a notification each time a loan offer is filled.
 
 - ``notify_tx_coins``
 
